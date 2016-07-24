@@ -1,5 +1,5 @@
 $(function() {
-	var animatescroll = true;
+	var scroll_links = true;
 	
 	$('a[href*=#]:not([href=#])').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -17,7 +17,7 @@ $(function() {
 			var delay = Math.abs(currentpos - scrollpos) * 0.5;
 			
 			if (target.length) {
-				animatescroll = false;
+				scroll_links = false;
 				$('html,body').animate({
 					scrollTop: scrollpos
 				}, delay, 'swing', function() {animatescroll = true;});
@@ -26,23 +26,36 @@ $(function() {
 		}
 	});
 	
-	$(window).scroll(function() {
-		if (!animatescroll) return true;
-		
-		var name = 'home';
-		var highestpos = 0;
+	var animateScroll = function() {
 		var currentpos = $(window).scrollTop();
 		var topbar = $('.topbar').height();
-		$('a.anchor').each(function() {
-			var pos = $(this).offset().top - topbar + 15;
-			if ((currentpos >= pos) && (pos >= highestpos)) {
-				highestpost = pos;
-				name = $(this).attr('name');
-			}
-		});
-		$('.topbar a').removeClass('current');
-		$('.topbar a[href="#'+name+'"]').addClass('current');
-	});
+		var windowheight = window.innerHeight - topbar;
+		
+		var opacity = 1;
+		if (currentpos < windowheight) {
+			opacity = (currentpos+0.0) / (windowheight+0.0);
+		}
+		
+		$('.topbar .background').css('opacity', opacity);
+			
+		if (scroll_links) {
+			var name = 'home';
+			var highestpos = 0;
+			$('a.anchor').each(function() {
+				var pos = $(this).offset().top - topbar + 15;
+				if ((currentpos >= pos) && (pos >= highestpos)) {
+					highestpost = pos;
+					name = $(this).attr('name');
+				}
+			});
+			$('.topbar a').removeClass('current');
+			$('.topbar a[href="#'+name+'"]').addClass('current');
+		}
+	};
+	
+	$(window).scroll(animateScroll);
+	
+	animateScroll();
 });
 
 

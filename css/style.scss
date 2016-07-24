@@ -42,7 +42,6 @@ $titleheight: 4vh;
 $navheight: 2.5vh;
 
 div.topbar {
-	background-color: $darkgrey;
 	color: $lightgrey;
 	z-index: 9999;
 	
@@ -51,6 +50,15 @@ div.topbar {
 	left: 0;
 	width: 100%;
 	height: $topbarheight;
+	
+	div.background {
+		background-color: $darkgrey;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
 	
 	h1 {
 		font-size: $titleheight;
@@ -112,11 +120,13 @@ div.card {
 	padding-top: 30px;
 	
 	&.title {
-		background-color: lime;
+		background-color: red;
+		height: 100vh;
+		padding-top: $topbarheight;
 	}
 	
 	&.portfolio {
-		background-color: fuchsia;
+		background-color: lime;
 	}
 }
 
