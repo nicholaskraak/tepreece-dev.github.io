@@ -15,8 +15,10 @@ body {
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	font-size: 19px;
 	background-color: $lightgrey;
 	color: $darkgrey;
+	line-height: 1.2;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -35,6 +37,27 @@ h2 {
 h3 {
 	font-style: normal;
 	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+blockquote {
+	color: $blue;
+	font-style: italic;
+	quotes: "“" "”" "‘" "’";
+	
+	&:before { content: open-quote; }
+	&:after { content: close-quote; }
+}
+
+cite {
+	font-style: normal;
+	margin-left: 10px;
+	
+	&:before { content: '– '; }
 }
 
 $topbarheight: 20vh;
@@ -102,22 +125,40 @@ a {
 	&:hover, &:active { text-decoration: underline; }
 }
 
+a.button {
+	color: $darkgrey;
+	display: block;
+	width: 100%;
+	border: 3px $darkgrey solid;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 15px;
+	font-size: 22px;
+	
+	&:hover, &:active {
+		text-decoration: none;
+		background-color: $darkgrey;
+		color: $lightgrey;
+		transition: all 200ms ease-in-out;
+	}
+}
+
 div.inner {
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-div.spacer {
-	height: $topbarheight;
+div.clear {
+	clear: both;
 }
 
 div.card {
 	display: block;
 	position: relative;
 	width: 100%;
-	height: 100vh+-$topbarheight;
-	padding-top: 30px;
+	min-height: 100vh+-$topbarheight;
+	padding: 30px 0;
 	
 	&.title {
 		background-color: red;
@@ -128,6 +169,27 @@ div.card {
 	&.portfolio {
 		background-color: lime;
 	}
+	
+	$wide: 65%;
+	
+	div.wide {
+		float: left;
+		display: inline-block;
+		width: $wide;
+		padding-right: 30px;
+	}
+	
+	div.narrow {
+		float: left;
+		display: inline-block;
+		width: 100%+-$wide;
+		
+		img {
+			width: 100%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+	}
 }
 
 div.footer {
@@ -136,11 +198,14 @@ div.footer {
 	color: $lightgrey;
 	position: absolute;
 	padding: 5px 0;
-	font-size: 12px;
-	line-height: 1.2;
+	font-size: 13px;
 	
 	a {
 		color: $lightgrey;
+	}
+	
+	p {
+		margin-bottom: 0;
 	}
 	
 	div.left {
@@ -153,8 +218,6 @@ div.footer {
 		text-align: right;
 	}
 }
-
-
 
 
 

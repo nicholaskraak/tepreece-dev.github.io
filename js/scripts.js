@@ -4,13 +4,12 @@ $(function() {
 	$('a[href*=#]:not([href=#])').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			$('.topbar a').removeClass('current');
-			$(this).addClass('current');
 			
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 			
 			var topbar = $('.topbar').height();
-			var scrollpos = target.offset().top - topbar + 15;
+			var scrollpos = target.offset().top - topbar + 20;
 			if (scrollpos < 0) scrollpos = 0;
 			
 			var currentpos = $(window).scrollTop();
@@ -20,7 +19,7 @@ $(function() {
 				scroll_links = false;
 				$('html,body').animate({
 					scrollTop: scrollpos
-				}, delay, 'swing', function() {animatescroll = true;});
+				}, delay, 'swing', function() {scroll_links = true; animateScroll();});
 				return false;
 			}
 		}
