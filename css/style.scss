@@ -1,0 +1,153 @@
+---
+---
+
+@import 'https://fonts.googleapis.com/css?family=Cabin:400,400i,700i|Quicksand';
+
+{% include reset.css %}
+
+$lightgrey: #e8e8e8;
+$darkgrey: #1d1c22;
+$blue: #634eff;
+
+$width: 930px;
+
+body {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	background-color: $lightgrey;
+	color: $darkgrey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Cabin', sans-serif;
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+}
+
+h2 {
+	color: $blue;
+	font-size: 68px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	font-style: normal;
+	font-size: 18px;
+}
+
+$topbarheight: 20vh;
+$titleheight: 4vh;
+$navheight: 2.5vh;
+
+div.topbar {
+	background-color: $darkgrey;
+	color: $lightgrey;
+	z-index: 9999;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $topbarheight;
+	
+	h1 {
+		font-size: $titleheight;
+		font-weight: 700;
+		position: absolute;
+		top: $topbarheight/2-$titleheight/2;
+	}
+	
+	ul {
+		float: right;
+		list-style-type: none;
+		overflow: hidden;
+		font-size: $navheight;
+		margin-top: $topbarheight/2-$navheight/2;
+		
+		li {
+			float: left;
+			
+			&:after {
+				content: '|';
+				padding: 0 5px;
+			}
+			
+			&:last-child:after {
+				content: '';
+			}
+			
+			a {
+				color: $lightgrey;
+				
+				&.current {
+					color: $blue;
+				}
+			}
+		}
+	}
+}
+
+a {
+	&:link, &:visited { text-decoration: none; }
+	&:hover, &:active { text-decoration: underline; }
+}
+
+div.inner {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.spacer {
+	height: $topbarheight;
+}
+
+div.card {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100vh+-$topbarheight;
+	padding-top: 30px;
+	
+	&.title {
+		background-color: lime;
+	}
+	
+	&.portfolio {
+		background-color: fuchsia;
+	}
+}
+
+div.footer {
+	width: 100%;
+	background-color: $darkgrey;
+	color: $lightgrey;
+	position: absolute;
+	padding: 5px 0;
+	font-size: 12px;
+	line-height: 1.2;
+	
+	a {
+		color: $lightgrey;
+	}
+	
+	div.left {
+		float: left;
+		text-align: left;
+	}
+	
+	div.right {
+		float: right;
+		text-align: right;
+	}
+}
+
+
+
+
+
+
+
+
