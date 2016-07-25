@@ -1,7 +1,7 @@
 ---
 ---
 
-@import 'https://fonts.googleapis.com/css?family=Cabin:400,400i,700i|Quicksand';
+@import 'https://fonts.googleapis.com/css?family=Cabin:400,400i,700i|Open+Sans';
 
 {% include reset.css %}
 
@@ -11,14 +11,23 @@ $blue: #634eff;
 
 $width: 930px;
 
+$topbarheight: 20vh;
+$titleheight: 4vh;
+$navheight: 2.2vh;
+
+$line1height: 10vh;
+$line2height: 17.15vh;
+$line3height: 18.83vh;
+$line4height: 11.19vh;
+
 body {
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	font-size: 19px;
+	font-size: 18px;
 	background-color: $lightgrey;
 	color: $darkgrey;
-	line-height: 1.2;
+	line-height: 1.4;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,6 +35,30 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	font-style: italic;
 	text-transform: uppercase;
+	line-height: 1;
+}
+
+h1 {
+	color: $lightgrey;
+	display: inline-block;
+	
+	&.line1 {
+		font-size: $line1height;
+		border-bottom: 10px solid $blue;
+		padding-bottom: 5px;
+	}
+	
+	&.line2 {
+		font-size: $line2height;
+	}
+	
+	&.line3 {
+		font-size: $line3height;
+	}
+	
+	&.line4 {
+		font-size: $line4height;
+	}
 }
 
 h2 {
@@ -60,10 +93,6 @@ cite {
 	&:before { content: '– '; }
 }
 
-$topbarheight: 20vh;
-$titleheight: 4vh;
-$navheight: 2.5vh;
-
 div.topbar {
 	color: $lightgrey;
 	z-index: 9999;
@@ -73,6 +102,7 @@ div.topbar {
 	left: 0;
 	width: 100%;
 	height: $topbarheight;
+	line-height: 1;
 	
 	div.background {
 		background-color: $darkgrey;
@@ -161,9 +191,12 @@ div.card {
 	padding: 30px 0;
 	
 	&.title {
-		background-color: red;
+		background: url('/images/bridgedark.png');
+		background-size: cover;
+		background-position: center;
 		height: 100vh;
-		padding-top: $topbarheight;
+		padding-top: (100vh+-$line1height+-$line2height+-$line3height+-$line4height)/2+$topbarheight/6;
+		text-align: center;
 	}
 	
 	&.portfolio {
