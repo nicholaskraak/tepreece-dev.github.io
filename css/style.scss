@@ -193,7 +193,8 @@ div.card {
 	padding: 30px 0;
 	
 	&.title {
-		background: url('/images/bridgedark.png');
+		background-color: $darkgrey;
+		background-image: url('/images/bridgedark.png');
 		background-size: cover;
 		background-position: center;
 		height: 100vh;
