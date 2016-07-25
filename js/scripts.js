@@ -39,10 +39,13 @@ $(function() {
 		var title = $('.topbar h1').height();
 		
 		var top = (topbar+0.0) / 2.0 - (title+0.0) / 2.2;
-		if (currentpos < topbar) {
+		var start = (windowheight+0.0) / 2.0;
+		var distance = (topbar+0.0);
+		
+		if (currentpos < start) {
 			top = -title;
-		} else if (currentpos < topbar*2) {
-			var frac = (currentpos - topbar + 0.0) / (topbar + 0.0);
+		} else if (currentpos < (start + distance)) {
+			var frac = (currentpos - start + 0.0) / (distance + 0.0);
 			top = -title + (title + top + 0.0) * frac;
 		}
 		$('.topbar h1').css('top', top);
