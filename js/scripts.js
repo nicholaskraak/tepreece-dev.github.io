@@ -28,15 +28,25 @@ $(function() {
 	var animateScroll = function() {
 		var currentpos = $(window).scrollTop();
 		var topbar = $('.topbar').height();
-		var windowheight = window.innerHeight - topbar;
+		var windowheight = window.innerHeight;
 		
 		var opacity = 1;
-		if (currentpos < windowheight) {
-			opacity = (currentpos+0.0) / (windowheight+0.0);
-		}
-		
+		if (currentpos < topbar) {
+			opacity = (currentpos+0.0) / (topbar+0.0);
+		}		
 		$('.topbar .background').css('opacity', opacity);
-			
+		
+		var title = $('.topbar h1').height();
+		
+		var top = (topbar+0.0) / 2.0 - (title+0.0) / 2.2;
+		if (currentpos < topbar) {
+			top = -title;
+		} else if (currentpos < topbar*2) {
+			var frac = (currentpos - topbar + 0.0) / (topbar + 0.0);
+			top = -title + (title + top + 0.0) * frac;
+		}
+		$('.topbar h1').css('top', top);
+		
 		if (scroll_links) {
 			var name = 'home';
 			var highestpos = 0;

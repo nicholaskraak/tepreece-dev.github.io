@@ -11,7 +11,7 @@ $blue: #634eff;
 
 $width: 930px;
 
-$topbarheight: 20vh;
+$topbarheight: 15vh;
 $titleheight: 4vh;
 $navheight: 2.2vh;
 
@@ -54,10 +54,12 @@ h1 {
 	
 	&.line3 {
 		font-size: $line3height;
+		line-height: 0.6;
 	}
 	
 	&.line4 {
 		font-size: $line4height;
+		line-height: 0.75;
 	}
 }
 
@@ -200,7 +202,9 @@ div.card {
 	}
 	
 	&.portfolio {
-		background-color: lime;
+		background: url('/images/bridgelight.png');
+		background-size: cover;
+		background-position: right;
 	}
 	
 	$wide: 65%;
