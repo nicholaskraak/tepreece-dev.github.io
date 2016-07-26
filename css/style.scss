@@ -273,14 +273,15 @@ div.card {
 
 ul.grid {
 	list-style: none;
-	width: 100%;
+	width: 80%;
+	text-align: left;
 	
 	li {
 		display: inline-block;
-		width: 45%;
+		width: 31%;
 		height: auto;
-		margin-right: 4%;
-		margin-bottom: 20px;
+		margin-right: 1%;
+		margin-bottom: 10px;
 	}
 	
 	a {
