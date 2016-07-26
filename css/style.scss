@@ -219,7 +219,7 @@ div.card {
 		text-align: center;
 	}
 	
-	&.portfolio {
+	&.bridge {
 		background-image: url('/images/bridgelight.jpg');
 		background-size: cover;
 		background-position: right;
@@ -273,8 +273,8 @@ div.card {
 
 ul.grid {
 	list-style: none;
-	width: 80%;
-	text-align: left;
+	width: 100%;
+	text-align: center;
 	
 	li {
 		display: inline-block;
