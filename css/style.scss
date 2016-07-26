@@ -219,6 +219,12 @@ div.card {
 		text-align: center;
 	}
 	
+	&.bridgewhite {
+		background-image: url('/images/bridgewhite.png');
+		background-size: cover;
+		background-position: center;
+	}
+	
 	&.bridge {
 		background-image: url('/images/bridgelight.jpg');
 		background-size: cover;
